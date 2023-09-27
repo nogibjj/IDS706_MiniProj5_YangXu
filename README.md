@@ -22,22 +22,34 @@ Ensure the presence of:
 
 ## Functionality
 
-- **`create_connection()`**: Establishes a connection with the PostgreSQL database.
-
-- **`create_table()`**: Initializes the database table.
-
-- **`insert_item(date, product, price, quantity)`**: Inserts a new record into the database.
-
-... [Other Functions]
+- **`create_table()`**: Initializes the `items` table in the database. If the table already exists, it won't be recreated.
+- **`insert_item(date, product, price, quantity)`**: Inserts a new item into the `items` table. The arguments represent the date, product name, price, and quantity respectively.
+- **`get_all_items()`**: Fetches all items from the `items` table and returns them as a list of tuples.
+- **`update_item_price(product, new_price)`**: Finds an item in the `items` table by its product name and updates its price.
+- **`delete_item(product)`**: Deletes an item from the `items` table based on the product name.
+- **`get_items_by_product(product)`**: Fetches all records of a specific product from the `items` table.
 
 ## Sample Output
-
-... [Insert a description or a sample output of your script, if applicable]
 
 - **Database Record**:
 
     ```bash
-    date: YYYY-MM-DD, product: 'Example', price: 100.00, quantity: 5
+    (92, datetime.date(2023, 9, 4), 'TestItem', Decimal('1.50'), 30)
+    (93, datetime.date(2023, 9, 1), 'Apple', Decimal('1.20'), 50)
+    (94, datetime.date(2023, 9, 1), 'Banana', Decimal('0.50'), 40)
+    (95, datetime.date(2023, 9, 1), 'Cherry', Decimal('2.50'), 20)
+    (96, datetime.date(2023, 9, 2), 'Apple', Decimal('1.30'), 45)
+    (97, datetime.date(2023, 9, 2), 'Banana', Decimal('0.60'), 50)
+    (98, datetime.date(2023, 9, 2), 'Cherry', Decimal('2.40'), 22)
+    (99, datetime.date(2023, 9, 3), 'Apple', Decimal('1.10'), 55)
+    (100, datetime.date(2023, 9, 3), 'Banana', Decimal('0.70'), 42)
+    (101, datetime.date(2023, 9, 3), 'Cherry', Decimal('2.60'), 19)
+
+    [(92, datetime.date(2023, 9, 4), 'TestItem', Decimal('2.00'), 30)]
+
+    check TestItem deleted:  []
+
+    All items deleted.
     ```
 
 ... [Add other outputs, visualizations, or images if necessary]
