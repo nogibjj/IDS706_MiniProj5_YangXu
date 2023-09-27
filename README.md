@@ -9,9 +9,10 @@ Utilizing the `psycopg2` library, this project demonstrates essential techniques
 
 ## Key Modifications from Previous Projects
 
-- Added database operation functions such as `create_table()`, `insert_item()`, `update_item()`, and more.
-- Modified `test_main.py` to ensure the correct working of new functionalities introduced.
-- Integrated `psycopg2-binary 2.9.1` and `python-dotenv 0.19.2` within `requirements.txt` to facilitate database operations and environment variable management.
+- Introduced database operation functions like `create_table()`, `insert_item()`, `update_item_price()`, `delete_item()`, `delete_all_items()`, `get_items_by_product()`, and `insert_data_from_csv()`.
+- Extended `test_main.py` to verify the correct working of the newly added functionalities.
+- Added `psycopg2-binary 2.9.1` and `python-dotenv 0.19.2` to `requirements.txt` to enhance database operations and environment variable management.
+
 
 ### Requirements
 
@@ -19,15 +20,18 @@ Ensure the presence of:
 - Python (Version 3.6 or newer)
 - psycopg2-binary (Version 2.9.1)
 - python-dotenv (Version 0.19.2)
+- pandas
 
 ## Functionality
 
-- **`create_table()`**: Initializes the `items` table in the database. If the table already exists, it won't be recreated.
-- **`insert_item(date, product, price, quantity)`**: Inserts a new item into the `items` table. The arguments represent the date, product name, price, and quantity respectively.
-- **`get_all_items()`**: Fetches all items from the `items` table and returns them as a list of tuples.
-- **`update_item_price(product, new_price)`**: Finds an item in the `items` table by its product name and updates its price.
-- **`delete_item(product)`**: Deletes an item from the `items` table based on the product name.
-- **`get_items_by_product(product)`**: Fetches all records of a specific product from the `items` table.
+- **`create_table()`**: Sets up the `items` table in the database. If already present, the table isn't recreated.
+- **`insert_item(date, product, price, quantity)`**: Adds a new item to the `items` table.
+- **`insert_data_from_csv()`**: Inputs multiple items into the `items` table from a CSV file named `dataset_sample.csv`.
+- **`get_all_items()`**: Retrieves all items from the `items` table.
+- **`update_item_price(product, new_price)`**: Updates the price of an item based on the product name.
+- **`delete_item(product)`**: Removes an item using the product name.
+- **`delete_all_items()`**: Deletes all entries from the `items` table.
+- **`get_items_by_product(product)`**: Acquires all records of a specific product.
 
 ## Sample Output
 
@@ -51,7 +55,5 @@ Ensure the presence of:
 
     All items deleted.
     ```
-
-... [Add other outputs, visualizations, or images if necessary]
 
 [![CI/CD workflow](https://github.com/nogibjj/IDS706_MiniProj5_YangXu/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_MiniProj5_YangXu/actions/workflows/cicd.yml)

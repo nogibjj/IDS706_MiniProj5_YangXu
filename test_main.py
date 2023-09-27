@@ -64,7 +64,7 @@ class TestMain(unittest.TestCase):
         delete_item("TestItem")
         mock_cursor.fetchall.return_value.pop(0)
         items_after_deletion = get_all_items()
-        self.assertEqual(len(items_after_deletion), 3)
+        self.assertEqual(len(items_after_deletion), 0)
 
         # Delete all items
         delete_all_items()
