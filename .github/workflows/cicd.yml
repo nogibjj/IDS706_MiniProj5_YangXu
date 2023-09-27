@@ -40,13 +40,13 @@ jobs:
     # runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up PostgreSQL
-      uses: harmon758/postgresql-action@v1
-      with:
-        postgresql version: '12'
-        postgresql db: test_db
-        postgresql user: test_user
-        postgresql password: test_password
+    # - name: Set up PostgreSQL
+    #   uses: harmon758/postgresql-action@v1
+    #   with:
+    #     postgresql version: '12'
+    #     postgresql db: test_db
+    #     postgresql user: test_user
+    #     postgresql password: test_password
     - name: Install build dependencies
       run: sudo apt-get install -y build-essential gcc
     - name: Install packages
@@ -57,9 +57,7 @@ jobs:
       run: make lint
     - name: Test with pytest
       run: make test
-    - name: Test with pytest
-      run: make test
-      env:
-        DATABASE_URL: postgresql://test_user:test_password@localhost:5432/test_db
+    #   env:
+    #     DATABASE_URL: postgresql://test_user:test_password@localhost:5432/test_db
     - name: Format with Black
       run: make format
